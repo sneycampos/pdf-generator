@@ -1,0 +1,16 @@
+services:
+
+  gotenberg:
+    image: gotenberg/gotenberg:8
+    ports:
+      - "3000:3000"
+
+  php:
+    image: dunglas/frankenphp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/app
+    environment:
+      - SERVER_NAME:https://localhost
