@@ -60,6 +60,7 @@ $app->get('/', function (Request $request, Response $response) use ($logger) {
             ->waitForExpression('document.documentElement && !document.documentElement.classList.contains("loading")')
             ->waitDelay('5s')
             ->emulateScreenMediaType()
+            ->outputFilename($fileName)
             ->paperSize(
                 width: 8.27,
                 height: 11.7,
@@ -70,7 +71,6 @@ $app->get('/', function (Request $request, Response $response) use ($logger) {
                 left: 0,
                 right: 0,
             )
-            ->outputFilename($fileName)
             ->cookies([
                 new ChromiumCookie(
                     name: 'PHPSESSID',
