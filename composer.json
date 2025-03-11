@@ -18,6 +18,11 @@
             "App\\": "src/"
         }
     },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
     "config": {
         "allow-plugins": {
             "php-http/discovery": true
